@@ -3,14 +3,6 @@ class Api::V1::MessagesController < ApplicationController
 
   def index
     @messages = @channel.messages.order('created_at ASC')
-    # @messages = @messages.map do |message|
-    #   {
-    #     'id': message[:id],
-    #     'author': User.find(message['user_id']).email,
-    #     'content': message[:content],
-    #     'created_at': message[:created_at]
-    #   }
-    # end
     render json: @messages
   end
 
